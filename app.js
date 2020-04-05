@@ -22,30 +22,8 @@ app.get("/", (req, res) => {
   res.send("hello world")
 })
 
-//認證系統路由
-app.get("/users/login", (req, res) => {
-    res.render("login")
-})
-
-app.post("/users/login", (req, res) => {
-    res.send("認證檢查")
-})
-
-app.get("/users/register", (req, res) => {
-    res.render("register")
-})
-
-app.post("/users/register", (req, res) => {
-    User.create({
-        name: req.body.name,
-        email: req.body.email,
-        password: req.body.password
-    }).then(user => res.redirect("/"))
-})
-
-app.get("/users/logout", (req, res) => {
-    res.send("成功登出")
-})
+//使用者登入、登出路由
+app.use("/users", require("./routes/user"))
 
 // 設定 express port 3000
 app.listen(port, () => {
