@@ -7,8 +7,9 @@ const methodOverride = require("method-override")
 
 const session = require("express-session");
 const passport = require("passport");
+const { authentication } = require("./config/auth");
 
-const port = 3000
+const port = 3000;
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }))
 app.set("view engine", "handlebars")
@@ -35,12 +36,14 @@ app.use((req, res, next) => {
 })
 
 // 設定路由
-app.get("/", (req, res) => {
-  res.send("hello world")
+app.get("/", authentication, (req, res) => {
+  res.send("List all todos")
 })
 
 //使用者登入、登出路由
 app.use("/users", require("./routes/user"))
+//todo list CRUD
+app.use("/todos", require("./routes/todo"))
 
 // 設定 express port 3000
 app.listen(port, () => {
