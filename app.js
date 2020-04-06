@@ -30,6 +30,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 //passport 定義的邏輯
 require("./config/passport")(passport)
+//讓 user 可以在所有地方被使用，使用 req.user 即可獲得
 app.use((req, res, next) => {
   res.locals.user = req.user
   next()
