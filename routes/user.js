@@ -13,7 +13,7 @@ router.get("/login", (req, res) => {
 router.post('/login', 
     passport.authenticate('local', { failureRedirect: '/users/login' }),
     (req, res) => {
-    res.redirect('/');
+    res.redirect('/todos');
 });
 
 router.get("/register", (req, res) => {
