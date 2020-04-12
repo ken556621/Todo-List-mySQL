@@ -1,0 +1,18 @@
+
+<form action="/todos/new" method="POST" >
+    <div class="input-group input-group-sm mt-3 col-6">
+    <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Add todo list</span>
+    </div>
+        <input type="text" class="form-control" name="name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </div>
+    <div class="input-group mt-3 col-6">
+        <div class="input-group-prepend">
+            <div class="input-group-text">
+            <labe>Done</labe>
+            <input type="checkbox" name="done" aria-label="Checkbox for following text input">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary m-4">Send</button>
+</form>
